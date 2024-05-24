@@ -1,0 +1,10 @@
+# Ignorar la carpeta del entorno virtual
+entorno_virtual/
+
+# Ignorar archivos y carpetas específicos
+*.pyc
+__pycache__/
+.env
+
+# Ignorar el archivo de configuración de VS Code
+.vscode/
