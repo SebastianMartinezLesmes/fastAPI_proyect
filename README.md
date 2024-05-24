@@ -30,4 +30,4 @@ uvicorn main:app --reload
 (Windows) set PYTHONDONTWRITEBYTECODE=1 && uvicorn main:app --reload
 (macOS/Linux) PYTHONDONTWRITEBYTECODE=1 uvicorn main:app --reload
 
-## [Ruta de consultas de fastAPI](http://127.0.0.1:8000/docs)
+[Ruta de consultas de fastAPI](http://127.0.0.1:8000/docs)
