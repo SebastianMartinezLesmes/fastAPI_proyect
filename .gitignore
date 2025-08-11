@@ -4,10 +4,6 @@ entorno_virtual/
 # Ignorar archivos y carpetas específicos
 *.pyc
 __pycache__/
-.env
-image.png
-image-1.png
-Zmachine_lerning.md
 
 # Ignorar el archivo de configuración de VS Code
 .vscode/
