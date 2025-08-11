@@ -25,10 +25,14 @@ deactivate
 ```
 uvicorn main:app --reload
 ```
-### Ejecutar servidor local (No genera cache)
+### Ejecutar servidor local (Sin generar cache)
+```bash
+# Windows
+set PYTHONDONTWRITEBYTECODE=1 && uvicorn main:app --reload
 ```
-(Windows) set PYTHONDONTWRITEBYTECODE=1 && uvicorn main:app --reload
-(macOS/Linux) PYTHONDONTWRITEBYTECODE=1 uvicorn main:app --reload
+```bash
+# macOS/Linux
+PYTHONDONTWRITEBYTECODE=1 uvicorn main:app --reload
 ```
 
 [Ruta de consultas de fastAPI](http://127.0.0.1:8000/docs)
