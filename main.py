@@ -48,3 +48,11 @@ def eliminar_usuario(usuario_id: str):
     if not mongoDB.eliminar_usuario(usuario_id):
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
     return {"mensaje": "Usuario eliminado"}
+
+@app.delete("/eliminar_db", tags=["CRUD MongoDB"])
+def eliminar_base_datos():
+    try:
+        mongoDB.client.drop_database("FastAPI")
+        return {"mensaje": "Base de datos 'FastAPI' eliminada correctamente"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
