@@ -1,9 +1,16 @@
 # app/services/mongoDB.py
 from bson import ObjectId
-from app.config.settings import db
+from app.config.settings import db, client
 
 usuarios_collection = db["usuarios"]
 
+def check_database_connection():
+    try:
+        client.server_info()  
+        return {"status": "success", "message": "Conectado a la base de datos"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"No se pudo conectar a la base de datos: {str(e)}")
+                            
 def crear_usuario(usuario: dict):
     result = usuarios_collection.insert_one(usuario)
     return str(result.inserted_id)

@@ -3,16 +3,20 @@ from app.models.usuario_model import Usuario
 from app.services import mongoDB
 
 router = APIRouter(
-    prefix="/usuarios",
+    prefix="/MongoDB",
     tags=["CRUD MongoDB"]
 )
 
-@router.post("/")
+@router.get("/check-db")
+def check_db():
+    return mongoDB.check_database_connection()
+
+@router.post("/post_users")
 def crear_usuario(usuario: Usuario):
     usuario_id = mongoDB.crear_usuario(usuario.dict())
     return {"id": usuario_id}
 
-@router.get("/")
+@router.get("/get_users")
 def listar_usuarios():
     return mongoDB.obtener_usuarios()
 
