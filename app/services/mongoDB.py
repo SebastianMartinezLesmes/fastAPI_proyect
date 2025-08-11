@@ -1,14 +1,9 @@
-from pymongo import MongoClient
+# app/services/mongoDB.py
 from bson import ObjectId
+from app.config.settings import db
 
-# Conexión a MongoDB (cambiar si usas Atlas)
-client = MongoClient("mongodb://localhost:27017/")
-
-# Base de datos y colección
-db = client["FastAPI"]
 usuarios_collection = db["usuarios"]
 
-# Funciones CRUD
 def crear_usuario(usuario: dict):
     result = usuarios_collection.insert_one(usuario)
     return str(result.inserted_id)
