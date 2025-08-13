@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routes import south_park_routes, mongodb_routes
+from app.routes import south_park_routes, mongodb_routes, mysql_routes
 
 app = FastAPI()
 
@@ -10,3 +10,4 @@ def index():
 # Registrar routers
 app.include_router(south_park_routes.router)
 app.include_router(mongodb_routes.router)
+app.include_router(mysql_routes.router)

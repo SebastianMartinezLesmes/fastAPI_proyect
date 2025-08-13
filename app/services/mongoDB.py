@@ -1,4 +1,3 @@
-# app/services/mongoDB.py
 from bson import ObjectId
 from app.config.settings import db, client
 
