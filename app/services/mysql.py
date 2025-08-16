@@ -58,7 +58,7 @@ def borrar_tabla(nombre_db: str, nombre_tabla: str):
     conn.close()
     return f"Tabla '{nombre_tabla}' eliminada de DB '{nombre_db}'"
 
-# 5. CRUD básico
+# 5. CRUD
 def insertar_dato(nombre_db: str, nombre_tabla: str, nombre: str, edad: int):
     conn = conectar()
     cursor = conn.cursor()

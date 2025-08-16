@@ -6,7 +6,7 @@ router = APIRouter(
     tags=["CRUD MySQL"]
 )
 
-# Verificar conexión
+# check-db
 @router.get("/check-db")
 def check_mysql_db():
     try:
@@ -15,7 +15,6 @@ def check_mysql_db():
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# Crear DB
 @router.post("/create-db/{nombre_db}")
 def create_db(nombre_db: str):
     try:
@@ -23,7 +22,6 @@ def create_db(nombre_db: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# Borrar DB
 @router.delete("/delete-db/{nombre_db}")
 def delete_db(nombre_db: str):
     try:
@@ -31,7 +29,6 @@ def delete_db(nombre_db: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# Crear tabla
 @router.post("/create-table/{nombre_db}/{nombre_tabla}")
 def create_table(nombre_db: str, nombre_tabla: str):
     try:
@@ -39,7 +36,6 @@ def create_table(nombre_db: str, nombre_tabla: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# Borrar tabla
 @router.delete("/delete-table/{nombre_db}/{nombre_tabla}")
 def delete_table(nombre_db: str, nombre_tabla: str):
     try:

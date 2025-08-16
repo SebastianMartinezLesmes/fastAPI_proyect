@@ -7,6 +7,7 @@ router = APIRouter(
     tags=["CRUD MongoDB"]
 )
 
+# check-db
 @router.get("/check-db")
 def check_db():
     return mongoDB.check_database_connection()

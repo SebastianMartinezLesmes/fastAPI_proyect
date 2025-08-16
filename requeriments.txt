@@ -1,9 +1,11 @@
 fastapi
-requests
 uvicorn
+requests
+pydantic
 
 pymongo
-pydantic
 bson
 
 mysql-connector-python
+psycopg2-binary
+oracledb
