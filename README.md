@@ -99,11 +99,6 @@ Actualmente soporta **MongoDB**.
 
 ## estructura del proyecto
 
-
----
-
-## Arquitectura del proyecto
-
 El proyecto está organizado siguiendo buenas prácticas de FastAPI:
 
 ```
