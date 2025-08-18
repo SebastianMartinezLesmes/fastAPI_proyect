@@ -118,8 +118,12 @@ app/
 └── models/ # Modelos Pydantic y esquemas de datos
 ```
 
+## 📜 Licencia
 
+Este proyecto está disponible bajo dos licencias abiertas:
 
-Licencia
+- [MIT License](./licences/MIT%20License):  
+  Una licencia permisiva y ampliamente utilizada que permite usar, modificar y redistribuir el código con pocas restricciones.
 
-Agregar una licencia (ej. MIT, Apache 2.0).
+- [Apache License 2.0](./licences/Apache%202.0%20License):  
+  Similar a MIT, pero incluye protecciones adicionales relacionadas con patentes y es comúnmente utilizada en proyectos empresariales y de gran escala.
