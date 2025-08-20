@@ -102,28 +102,42 @@ Actualmente soporta **MongoDB**.
 El proyecto está organizado siguiendo buenas prácticas de FastAPI:
 
 ```
+SECURITY.md
+README.md
+LICENSES/
+├── Apache-2.0.txt
+└── MIT.txt
+requirements.txt
 app/
-├── main.py # Punto de entrada de la aplicación
-├── routes/ # Definición de endpoints (routers)
-│ ├── south_park_routes.py
-│ ├── mysql_routes.py
-│ ├── postgresql_routes.py
-│ ├── oracle_routes.py
-│ └── mongodb_routes.py
-├── services/ # Lógica de conexión a las bases de datos
-│ ├── mysql.py
-│ ├── postgresql.py
-│ ├── oracle.py
-│ └── mongodb.py
-└── models/ # Modelos Pydantic y esquemas de datos
+├── main.py          # Punto de entrada de la aplicación
+├── routes/          # Definición de endpoints (routers)
+│   ├── south_park_routes.py
+│   ├── mysql_routes.py
+│   ├── postgresql_routes.py
+│   ├── oracle_routes.py
+│   └── mongodb_routes.py
+├── services/        # Lógica de conexión a las bases de datos
+│   ├── mysql.py
+│   ├── postgresql.py
+│   ├── oracle.py
+│   └── mongodb.py
+└── models/          # Modelos Pydantic y esquemas de datos
+
 ```
 
-## 📜 Licencia
+## 📜 Licencias
 
 Este proyecto está disponible bajo dos licencias abiertas:
 
-- [MIT License](./licences/MIT%20License):  
+- [MIT License](./licenses/MIT%20License):  
   Una licencia permisiva y ampliamente utilizada que permite usar, modificar y redistribuir el código con pocas restricciones.
 
-- [Apache License 2.0](./licences/Apache%202.0%20License):  
+- [Apache License 2.0](./licenses/Apache%202.0%20License):  
   Similar a MIT, pero incluye protecciones adicionales relacionadas con patentes y es comúnmente utilizada en proyectos empresariales y de gran escala.
+
+## 🛡️ Seguridad
+
+Este proyecto cuenta con una política de seguridad documentada en el archivo [SECURITY.md](./SECURITY.md).  
+Allí se especifican las versiones actualmente soportadas, así como el procedimiento oficial para la notificación y gestión de vulnerabilidades.  
+
+Si identificas un problema de seguridad, te solicito seguir el proceso descrito en dicho documento para garantizar una atención oportuna y adecuada.
