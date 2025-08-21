@@ -1,17 +1,13 @@
 import mysql.connector
 from mysql.connector import Error
-
-# Datos de conexión (puedes ponerlos en variables de entorno)
-MYSQL_HOST = "localhost"
-MYSQL_USER = "root"
-MYSQL_PASSWORD = "1234"
+from app.config.sql import MySQL_cred # Datos de conexión
 
 def conectar():
     try:
         conn = mysql.connector.connect(
-            host=MYSQL_HOST,
-            user=MYSQL_USER,
-            password=MYSQL_PASSWORD
+            host=MySQL_cred["MYSQL_HOST"],
+            user=MySQL_cred["MYSQL_USER"],
+            password=MySQL_cred["MYSQL_PASSWORD"]
         )
         if conn.is_connected():
             return conn

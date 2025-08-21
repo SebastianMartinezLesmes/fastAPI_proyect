@@ -1,25 +1,16 @@
 import psycopg2
 from psycopg2 import sql
 from fastapi import HTTPException
-
-# Datos de conexión (ajusta según tu entorno)
-DB_HOST = "localhost"
-DB_PORT = "5432"
-DB_USER = "postgres"
-DB_PASSWORD = "1234"
+from app.config.sql import postgreSQL_cred # Datos de conexión
 
 def get_connection(dbname="postgres"):
-    """
-    Crear conexión a la base de datos.
-    Por defecto conecta al esquema 'postgres'.
-    """
     try:
         conn = psycopg2.connect(
             dbname=dbname,
-            user=DB_USER,
-            password=DB_PASSWORD,
-            host=DB_HOST,
-            port=DB_PORT
+            user=postgreSQL_cred["DB_USER"],
+            password=postgreSQL_cred["DB_PASSWORD"],
+            host=postgreSQL_cred["DB_HOST"],
+            port=postgreSQL_cred["DB_PORT"]
         )
         return conn
     except Exception as e:

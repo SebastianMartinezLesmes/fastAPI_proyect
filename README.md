@@ -111,17 +111,21 @@ requirements.txt
 app/
 ├── main.py          # Punto de entrada de la aplicación
 ├── routes/          # Definición de endpoints (routers)
+│   ├── local_storage_routes.py 
 │   ├── south_park_routes.py
 │   ├── mysql_routes.py
 │   ├── postgresql_routes.py
 │   ├── oracle_routes.py
 │   └── mongodb_routes.py
 ├── services/        # Lógica de conexión a las bases de datos
+│   ├── local_storage.py
 │   ├── mysql.py
 │   ├── postgresql.py
 │   ├── oracle.py
 │   └── mongodb.py
-└── models/          # Modelos Pydantic y esquemas de datos
+├── models/          # Modelos Pydantic y esquemas de datos
+│   └── usuario_model.py
+└── utils/ 
 
 ```
 

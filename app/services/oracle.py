@@ -1,16 +1,9 @@
 import oracledb
-
-# Configuración de conexión (ajústalo a tu entorno)
-DB_CONFIG = {
-    "user": "system",
-    "password": "oracle",
-    "dsn": "localhost:1521/XEPDB1",  # Ejemplo con Oracle XE
-    "encoding": "UTF-8"
-}
+from app.config.sql import oracle_cred # Datos de conexión
 
 def get_connection():
     try:
-        conn = oracledb.connect(**DB_CONFIG)
+        conn = oracledb.connect(**oracle_cred)
         return conn
     except Exception as e:
         raise Exception(f"Error conectando a Oracle: {e}")

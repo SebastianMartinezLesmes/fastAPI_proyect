@@ -1,7 +1,11 @@
 from bson import ObjectId
-from app.config.settings import db, client
+from pymongo import MongoClient
+from fastapi import HTTPException
+from app.config.nosql import mongodb_cred # Datos de conexión
 
-usuarios_collection = db["usuarios"]
+client = MongoClient(mongodb_cred["MONGO_URI"])
+db = client[mongodb_cred["DB_NAME"]]
+usuarios_collection = db[mongodb_cred["COLLECTION"]]
 
 def check_database_connection():
     try:
