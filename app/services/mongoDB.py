@@ -1,14 +1,19 @@
-from pymongo import MongoClient
 from bson import ObjectId
+from pymongo import MongoClient
+from fastapi import HTTPException
+from app.config.nosql import mongodb_cred # Datos de conexión
 
-# Conexión a MongoDB (cambiar si usas Atlas)
-client = MongoClient("mongodb://localhost:27017/")
+client = MongoClient(mongodb_cred["MONGO_URI"])
+db = client[mongodb_cred["DB_NAME"]]
+usuarios_collection = db[mongodb_cred["COLLECTION"]]
 
-# Base de datos y colección
-db = client["FastAPI"]
-usuarios_collection = db["usuarios"]
-
-# Funciones CRUD
+def check_database_connection():
+    try:
+        client.server_info()  
+        return {"status": "success", "message": "Conectado a la base de datos"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"No se pudo conectar a la base de datos: {str(e)}")
+                            
 def crear_usuario(usuario: dict):
     result = usuarios_collection.insert_one(usuario)
     return str(result.inserted_id)
