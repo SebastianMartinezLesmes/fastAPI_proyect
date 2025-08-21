@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from app.models.usuario_model import Usuario
 from app.services import mongoDB
+from app.config.nosql import mongodb_cred # Datos de conexión
 
 router = APIRouter(
     prefix="/MongoDB",
@@ -11,6 +12,14 @@ router = APIRouter(
 @router.get("/check-db")
 def check_db():
     return mongoDB.check_database_connection()
+
+@router.delete("/eliminar_db")
+def eliminar_base_datos():
+    try:
+        mongoDB.client.drop_database(mongodb_cred["DB_NAME"])
+        return {"mensaje": f"Base de datos '{mongodb_cred['DB_NAME']}' fue eliminada correctamente"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/post_users")
 def crear_usuario(usuario: Usuario):
@@ -39,11 +48,3 @@ def eliminar_usuario(usuario_id: str):
     if not mongoDB.eliminar_usuario(usuario_id):
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
     return {"mensaje": "Usuario eliminado"}
-
-@router.delete("/eliminar_db")
-def eliminar_base_datos():
-    try:
-        mongoDB.client.drop_database("FastAPI")
-        return {"mensaje": "Base de datos 'FastAPI' eliminada correctamente"}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
