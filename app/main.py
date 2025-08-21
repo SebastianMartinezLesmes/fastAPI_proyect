@@ -5,6 +5,7 @@ from app.routes import (
     mysql_routes,
     oracle_routes,
     postgresql_routes,
+    local_storage_routes,
 )
 app = FastAPI()
 
@@ -14,6 +15,7 @@ def index():
 
 # Registrar routers
 app.include_router(south_park_routes.router)
+app.include_router(local_storage_routes.router)
 
 # DB noSQL
 app.include_router(mongodb_routes.router)
